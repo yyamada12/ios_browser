@@ -49,11 +49,15 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YSK-cT-CGa">
+                                <rect key="frame" x="295" y="35" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bmf-pf-NDQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="469-V8-vQB"/>
                             <constraint firstItem="bmf-pf-NDQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="4hd-eO-cbP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YSK-cT-CGa" secondAttribute="trailing" constant="5" id="7xi-zA-x2z"/>
                             <constraint firstItem="fHn-tj-4dK" firstAttribute="top" secondItem="bmf-pf-NDQ" secondAttribute="bottom" constant="10" id="Bul-DY-DOV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bmf-pf-NDQ" secondAttribute="trailing" constant="10" id="EJP-5d-qot"/>
                             <constraint firstItem="sEo-og-vUD" firstAttribute="top" secondItem="fHn-tj-4dK" secondAttribute="bottom" id="EKH-H9-HzM"/>
@@ -61,6 +65,7 @@
                             <constraint firstAttribute="trailing" secondItem="sEo-og-vUD" secondAttribute="trailing" id="GCU-wN-OaI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fHn-tj-4dK" secondAttribute="trailing" id="Le6-zR-w5j"/>
                             <constraint firstItem="fHn-tj-4dK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OWy-Od-2KH"/>
+                            <constraint firstItem="YSK-cT-CGa" firstAttribute="centerY" secondItem="bmf-pf-NDQ" secondAttribute="centerY" id="jD9-9f-Qp3"/>
                             <constraint firstAttribute="bottom" secondItem="sEo-og-vUD" secondAttribute="bottom" id="pcg-aZ-tvc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -69,6 +74,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="Lfu-zG-6x9" id="6KE-QY-jhY"/>
+                        <outlet property="browserActivityIndicatorView" destination="YSK-cT-CGa" id="2Lf-5v-ZvT"/>
                         <outlet property="browserWebView" destination="fHn-tj-4dK" id="8yl-sF-qXS"/>
                         <outlet property="forwardButton" destination="1NZ-sX-KhC" id="Q4s-LE-TLG"/>
                         <outlet property="reloadButton" destination="tMd-qu-Ixm" id="c0U-rO-HDa"/>
