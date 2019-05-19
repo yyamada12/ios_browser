@@ -20,7 +20,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let urlString = "http://dotinstall.com"
+        let urlRequest = URLRequest(url: URL(string: urlString)!)
+        self.browserWebView.loadRequest(urlRequest)
     }
 
     @IBAction func goBack(_ sender: Any) {
