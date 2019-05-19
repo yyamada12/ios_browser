@@ -18,23 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-pf-NDQ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-pf-NDQ">
                                 <rect key="frame" x="10" y="30" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
                             </textField>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHn-tj-4dK">
                                 <rect key="frame" x="0.0" y="70" width="320" height="454"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEo-og-vUD">
-                                <rect key="frame" x="0.0" y="196" width="226" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="Lfu-zG-6x9"/>
-                                    <barButtonItem title="Item" id="1NZ-sX-KhC"/>
+                                    <barButtonItem title="←" id="Lfu-zG-6x9" userLabel="←">
+                                        <connections>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="auK-tD-yRC"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="→" id="1NZ-sX-KhC" userLabel="→">
+                                        <connections>
+                                            <action selector="goForward:" destination="BYZ-38-t0r" id="rgJ-pc-Bbr"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NXF-hB-NI4"/>
-                                    <barButtonItem title="Item" id="tMd-qu-Ixm"/>
+                                    <barButtonItem systemItem="refresh" id="tMd-qu-Ixm">
+                                        <connections>
+                                            <action selector="reload:" destination="BYZ-38-t0r" id="gMc-kh-x5K"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -55,6 +67,13 @@
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backButton" destination="Lfu-zG-6x9" id="6KE-QY-jhY"/>
+                        <outlet property="browserWebView" destination="fHn-tj-4dK" id="8yl-sF-qXS"/>
+                        <outlet property="forwardButton" destination="1NZ-sX-KhC" id="Q4s-LE-TLG"/>
+                        <outlet property="reloadButton" destination="tMd-qu-Ixm" id="c0U-rO-HDa"/>
+                        <outlet property="urlTextField" destination="bmf-pf-NDQ" id="5Fz-0H-Puz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
