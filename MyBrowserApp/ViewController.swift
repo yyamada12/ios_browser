@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIWebViewDelegate {
+class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var browserWebView: UIWebView!
@@ -23,7 +23,18 @@ class ViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         self.browserWebView.delegate = self
+        self.urlTextField.delegate = self
         self.browserActivityIndicatorView.hidesWhenStopped = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField != self.urlTextField {
+            return true
+        }
+        if let urlString = textField.text {
+            self.loadUrl(urlString: urlString)
+        }
+        return true
     }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
