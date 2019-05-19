@@ -35,6 +35,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
             self.urlTextField.text = urlString
         }
         self.browserActivityIndicatorView.stopAnimating()
+        self.backButton.isEnabled = self.browserWebView.canGoBack
+        self.forwardButton.isEnabled = self.browserWebView.canGoForward
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,10 +75,13 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
 
     @IBAction func goBack(_ sender: Any) {
+        self.browserWebView.goBack()
     }
     @IBAction func goForward(_ sender: Any) {
+        self.browserWebView.goForward()
     }
     @IBAction func reload(_ sender: Any) {
+        self.browserWebView.reload()
     }
     
 }
