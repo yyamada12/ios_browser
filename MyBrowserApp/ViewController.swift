@@ -37,6 +37,13 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField != self.urlTextField {
+            return
+        }
+        textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+    }
+    
     func webViewDidStartLoad(_ webView: UIWebView) {
         self.browserActivityIndicatorView.startAnimating()
     }
