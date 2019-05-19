@@ -20,11 +20,42 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let urlString = "http://dotinstall.com"
-        let urlRequest = URLRequest(url: URL(string: urlString)!)
-        self.browserWebView.loadRequest(urlRequest)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let urlString = "http://dotinstall.com"
+        self.loadUrl(urlString: urlString)
+        self.addBorder()
+    }
+    func addBorder() {
+        let topBorder = CALayer()
+        topBorder.frame = CGRect(x: 0.0, y:0.0, width: self.browserWebView.frame.size.width, height: 1.0)
+        topBorder.backgroundColor = UIColor.lightGray.cgColor
+        self.browserWebView.layer.addSublayer(topBorder)
+    }
+    func showAlert(_ message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func getValidatedUrl(urlString: String) -> URL? {
+        if URL(string: urlString) == nil {
+            self.showAlert("Invalid URL")
+            return nil
+        }
+        return URL(string: urlString)
+    }
+    
+    func loadUrl(urlString: String) {
+        if let url = self.getValidatedUrl(urlString: urlString){
+            let urlRequest = URLRequest(url: URL(string: urlString)!)
+            self.browserWebView.loadRequest(urlRequest)
+        }
+    }
+
 
     @IBAction func goBack(_ sender: Any) {
     }
